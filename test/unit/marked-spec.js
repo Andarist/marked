@@ -1,4 +1,4 @@
-const marked = require('../../src/marked.js');
+const marked = require('../..');
 
 describe('Test heading ID functionality', () => {
   it('should add id attribute by default', () => {
@@ -72,12 +72,13 @@ describe('Test paragraph token type', () => {
   });
 });
 
-describe('changeDefaults', () => {
+describe('setOption', () => {
   it('should change global defaults', () => {
-    const { defaults, changeDefaults } = require('../../src/defaults');
+    console.log(require('../..'))
+    const { defaults, setOptions } = require('../..');
     expect(defaults.test).toBeUndefined();
-    changeDefaults({ test: true });
-    expect(require('../../src/defaults').defaults.test).toBe(true);
+    setOptions({ test: true });
+    expect(require('../..').defaults.test).toBe(true);
   });
 });
 

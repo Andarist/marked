@@ -19,12 +19,14 @@ function getDefaults() {
   };
 }
 
-function changeDefaults(newDefaults) {
-  module.exports.defaults = newDefaults;
-}
-
-module.exports = {
+const exportedValue = {
   defaults: getDefaults(),
   getDefaults,
   changeDefaults
 };
+
+function changeDefaults(newDefaults) {
+  exportedValue.defaults = newDefaults;
+}
+
+export default exportedValue;

@@ -1,17 +1,17 @@
-const Renderer = require('./Renderer.js');
-const { defaults } = require('./defaults.js');
-const { inline } = require('./rules.js');
-const {
+import Renderer from './Renderer.js';
+import defaults from './defaults.js';
+import { inline } from './rules.js';
+import {
   findClosingBracket,
   escape
-} = require('./helpers.js');
+} from './helpers.js';
 
 /**
  * Inline Lexer & Compiler
  */
-module.exports = class InlineLexer {
+export default class InlineLexer {
   constructor(links, options) {
-    this.options = options || defaults;
+    this.options = options || defaults.defaults;
     this.links = links;
     this.rules = inline.normal;
     this.options.renderer = this.options.renderer || new Renderer();

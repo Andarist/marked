@@ -1,19 +1,19 @@
-const { defaults } = require('./defaults.js');
-const { block } = require('./rules.js');
-const {
+import defaults from './defaults.js';
+import { block } from './rules.js';
+import {
   rtrim,
   splitCells,
   escape
-} = require('./helpers.js');
+} from './helpers.js';
 
 /**
  * Block Lexer
  */
-module.exports = class Lexer {
+export default class Lexer {
   constructor(options) {
     this.tokens = [];
     this.tokens.links = Object.create(null);
-    this.options = options || defaults;
+    this.options = options || defaults.defaults;
     this.rules = block.normal;
 
     if (this.options.pedantic) {

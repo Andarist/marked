@@ -1,19 +1,15 @@
-const Lexer = require('./Lexer.js');
-const Parser = require('./Parser.js');
-const Renderer = require('./Renderer.js');
-const TextRenderer = require('./TextRenderer.js');
-const InlineLexer = require('./InlineLexer.js');
-const Slugger = require('./Slugger.js');
-const {
+import Lexer from './Lexer.js';
+import Parser from './Parser.js';
+import Renderer from './Renderer.js';
+import TextRenderer from './TextRenderer.js';
+import InlineLexer from './InlineLexer.js';
+import Slugger from './Slugger.js';
+import {
   merge,
   checkSanitizeDeprecation,
   escape
-} = require('./helpers.js');
-const {
-  getDefaults,
-  changeDefaults,
-  defaults
-} = require('./defaults.js');
+} from './helpers.js';
+import defaults from './defaults.js';
 
 /**
  * Marked
@@ -119,13 +115,13 @@ function marked(src, opt, callback) {
 marked.options =
 marked.setOptions = function(opt) {
   merge(marked.defaults, opt);
-  changeDefaults(marked.defaults);
+  defaults.changeDefaults(marked.defaults);
   return marked;
 };
 
-marked.getDefaults = getDefaults;
+marked.getDefaults = defaults.getDefaults;
 
-marked.defaults = defaults;
+marked.defaults = defaults.defaults;
 
 /**
  * Expose
@@ -147,4 +143,4 @@ marked.Slugger = Slugger;
 
 marked.parse = marked;
 
-module.exports = marked;
+export default marked;

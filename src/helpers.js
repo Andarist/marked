@@ -228,7 +228,7 @@ function checkSanitizeDeprecation(opt) {
   }
 }
 
-module.exports = {
+export {
   escape,
   unescape,
   edit,

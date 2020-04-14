@@ -1,4 +1,4 @@
-const marked = require('../../src/marked.js');
+const marked = require('../..');
 const htmlDiffer = require('./html-differ.js');
 
 beforeEach(() => {

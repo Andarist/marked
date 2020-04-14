@@ -3,7 +3,7 @@ const htmlDiffer = require('./helpers/html-differ.js');
 const { loadFiles } = require('./helpers/load.js');
 
 let marked = require('../lib/marked.js');
-const es6marked = require('../src/marked.js');
+const es6marked = require('..');
 
 /**
  * Load specs

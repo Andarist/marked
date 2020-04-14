@@ -1,21 +1,21 @@
-const Renderer = require('./Renderer.js');
-const Slugger = require('./Slugger.js');
-const InlineLexer = require('./InlineLexer.js');
-const TextRenderer = require('./TextRenderer.js');
-const { defaults } = require('./defaults.js');
-const {
+import Renderer from './Renderer.js';
+import Slugger from './Slugger.js';
+import InlineLexer from './InlineLexer.js';
+import TextRenderer from './TextRenderer.js';
+import defaults from './defaults.js';
+import {
   merge,
   unescape
-} = require('./helpers.js');
+} from './helpers.js';
 
 /**
  * Parsing & Compiling
  */
-module.exports = class Parser {
+export default class Parser {
   constructor(options) {
     this.tokens = [];
     this.token = null;
-    this.options = options || defaults;
+    this.options = options || defaults.defaults;
     this.options.renderer = this.options.renderer || new Renderer();
     this.renderer = this.options.renderer;
     this.renderer.options = this.options;
